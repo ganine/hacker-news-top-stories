@@ -14,3 +14,5 @@ rake db:setup
 ```
 ## Tasks
 - `rake start` # Starts application api and client
+## Endpoints
+- `/health` # Health check endpoint

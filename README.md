@@ -5,6 +5,10 @@
 - [Ruby 2.7.0](https://www.ruby-lang.org/en/documentation/installation/)
 - [PostgreSQL 12.1](https://www.postgresql.org/docs/12/tutorial-install.html)
 - [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli)
+- ChromeDriver
+```sh
+brew tap homebrew/cask && brew cask install chromedriver
+```
 ### Installation
 ```sh
 bundle install

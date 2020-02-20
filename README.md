@@ -12,7 +12,19 @@ bundle install
 ```sh
 rake db:setup
 ```
+### Heroku
+```sh
+heroku apps:create
+```
+```sh
+heroku buildpacks:add heroku/nodejs --index 1
+heroku buildpacks:add heroku/ruby --index 2
+```
 ## Tasks
 - `rake start` # Starts application api and client
+## Deployment
+```sh
+git push heroku master
+```
 ## Endpoints
 - `/health` # Health check endpoint

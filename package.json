@@ -1,0 +1,13 @@
+{
+    "name": "hacker-news-top-stories",
+    "license": "MIT",
+    "engines": {
+      "node": "12.13.1",
+      "yarn": "1.19.2"
+    },
+    "scripts": {
+      "build": "yarn --cwd client install && yarn --cwd client build",
+      "deploy": "cp -a client/build/. public/",
+      "heroku-postbuild": "yarn build && yarn deploy"
+    }
+  }

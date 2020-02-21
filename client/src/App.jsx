@@ -1,5 +1,6 @@
-import React, { Component } from "react";
-import "./App.css";
+import React, { Component } from 'react';
+import './App.css';
+import Stories from './Stories';
 
 class App extends Component {
   constructor(props) {
@@ -8,11 +9,11 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="hacker-news">
         <header>
           <h1>Hacker News</h1>
         </header>
-        <h2>Top 15 Hacker News</h2>
+        <Stories />
       </div>
     );
   }

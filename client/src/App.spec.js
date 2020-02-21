@@ -3,11 +3,11 @@ import { render } from '@testing-library/react';
 import App from './App';
 
 describe('App', () => {
-  it('renders page title', () => {
+  it('renders app title', () => {
     const { getByText } = render(<App />);
 
-    const appTitle = getByText(/Top 15 Hacker News/);
+    const header = getByText('Hacker News', { exact: true });
 
-    expect(appTitle).toBeInTheDocument();
+    expect(header).toBeInTheDocument();
   });
 });

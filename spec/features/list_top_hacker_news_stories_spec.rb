@@ -6,5 +6,11 @@ describe 'List top Hacker News stories', type: :system, js: true do
     visit '/'
 
     expect(page).to have_content('Top 15 Hacker News')
+
+    stories = within('ol.stories') do
+      all('li')
+    end
+
+    expect(stories.count).to be == 15
   end
 end

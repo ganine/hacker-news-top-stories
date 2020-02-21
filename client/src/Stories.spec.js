@@ -16,6 +16,15 @@ describe('Stories', () => {
     expect(listTitle).toBeInTheDocument();
   });
 
+  it('renders loading indicator', () => {
+    jest.spyOn(Stories.prototype, 'fetchData').mockImplementationOnce();
+
+    const { getByText } = render(<Stories />);
+    const loadingMessage = getByText('Loading...');
+
+    expect(loadingMessage).toBeInTheDocument();
+  })
+
   it('renders a stories list', async () => {
     const story = { id: 1, title: 'Vel et quaerat ut.' };
     axios.get.mockResolvedValue({ data: [story] });

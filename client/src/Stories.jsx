@@ -6,6 +6,7 @@ class Stories extends React.Component {
     super(props);
 
     this.state = {
+      isLoaded: false,
       stories: []
     };
   }
@@ -14,7 +15,8 @@ class Stories extends React.Component {
     axios.get('/api/stories').then(
       result => {
         this.setState({
-          stories: result.data
+          stories: result.data,
+          isLoaded: true
         });
       }
     );
@@ -25,15 +27,19 @@ class Stories extends React.Component {
   }
 
   renderList() {
-    const { stories } = this.state;
+    const { isLoaded, stories } = this.state;
 
-    return (
-      <ol>
-        {stories.map(story => (
-          <li key={story.id}>{story.title}</li>
-        ))}
-      </ol>
-    );
+    if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ol>
+          {stories.map(story => (
+            <li key={story.id}>{story.title}</li>
+          ))}
+        </ol>
+      );
+    }
   }
 
   render() {

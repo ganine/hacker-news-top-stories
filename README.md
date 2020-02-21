@@ -25,6 +25,7 @@ heroku buildpacks:add heroku/nodejs --index 1
 heroku buildpacks:add heroku/ruby --index 2
 ```
 ## Tasks
+- `rake spec:client`  # Run all client specs
 - `rake build:client` # Builds client
 - `rake start` # Starts application API and client
 ## Deployment

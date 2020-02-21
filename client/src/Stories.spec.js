@@ -20,7 +20,7 @@ describe('Stories', () => {
     jest.spyOn(Stories.prototype, 'fetchData').mockImplementationOnce();
 
     const { getByText } = render(<Stories />);
-    const loadingMessage = getByText('Loading...');
+    const loadingMessage = getByText(/Loading/i);
 
     expect(loadingMessage).toBeInTheDocument();
   })
@@ -33,6 +33,21 @@ describe('Stories', () => {
 
     await wait(() => {
       expect(getByText(story.title)).toBeInTheDocument();
+    });
+  });
+
+  context('when the api request fails', () => {
+    it('renders an error message', async () => {
+      axios.get.mockImplementation(() =>
+        Promise.reject({ message: 'Network Error' })
+      );
+
+      const { getByText } = render(<Stories />);
+
+      await wait(() => {
+        const errorMessage = getByText(/Network Error/);
+        expect(errorMessage).toBeInTheDocument();
+      });
     });
   });
 });

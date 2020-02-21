@@ -6,6 +6,7 @@ class Stories extends React.Component {
     super(props);
 
     this.state = {
+      errorMessage: null,
       isLoaded: false,
       stories: []
     };
@@ -18,6 +19,11 @@ class Stories extends React.Component {
           stories: result.data,
           isLoaded: true
         });
+      },
+      error => {
+        this.setState({
+          errorMessage: error.message
+        });
       }
     );
   }
@@ -27,9 +33,11 @@ class Stories extends React.Component {
   }
 
   renderList() {
-    const { isLoaded, stories } = this.state;
+    const { errorMessage, isLoaded, stories } = this.state;
 
-    if (!isLoaded) {
+    if (errorMessage) {
+      return <div>The stories could not be loaded because of:<br />{errorMessage}</div>;
+    } else if (!isLoaded) {
       return <div>Loading...</div>;
     } else {
       return (

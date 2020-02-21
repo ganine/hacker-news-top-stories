@@ -25,10 +25,13 @@ heroku buildpacks:add heroku/nodejs --index 1
 heroku buildpacks:add heroku/ruby --index 2
 ```
 ## Tasks
-- `rake start` # Starts application api and client
+- `rake build:client` # Builds client
+- `rake start` # Starts application API and client
 ## Deployment
 ```sh
 git push heroku master
 ```
 ## Endpoints
 - `/health` # Health check endpoint
+## Known Issues
+- For some reason the health check route declared in config.ru isn't been available when running system tests

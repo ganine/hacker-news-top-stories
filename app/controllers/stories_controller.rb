@@ -1,5 +1,6 @@
 class StoriesController < ApplicationController
   def index
-    render json: []
+    @stories = Story.all
+    render json: @stories
   end
 end

@@ -1,0 +1,5 @@
+[*.rb]
+indent_size = 2
+
+[*.{js,jsx}]
+quote_type = single

@@ -36,3 +36,5 @@ git push heroku master
 - `/health` # Health check endpoint
 ## Known Issues
 - For some reason the health check route declared in config.ru isn't been available when running system tests
+## References
+- [Faker Generators](https://github.com/faker-ruby/faker#generators)

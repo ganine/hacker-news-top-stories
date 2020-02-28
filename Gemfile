@@ -28,6 +28,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 group :test do
   gem 'capybara', '~> 3.31.0'
   gem 'selenium-webdriver', '~> 3.142.7'
+  gem 'shoulda-matchers', '~> 4.2.0'
 end
 
 group :development, :test do

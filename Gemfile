@@ -25,6 +25,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 
+gem 'faraday', '~> 1.0.0'
+
 group :test do
   gem 'capybara', '~> 3.31.0'
   gem 'selenium-webdriver', '~> 3.142.7'

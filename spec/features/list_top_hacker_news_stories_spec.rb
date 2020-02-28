@@ -1,6 +1,13 @@
 require 'rails_helper'
 
 describe 'List top Hacker News stories', type: :system, js: true do
+  before :all do
+    VCR.insert_cassette 'hacker_news'
+  end
+
+  after :all do
+    VCR.eject_cassette
+  end
 
   it 'shows the top 15 Hacker News stories' do
     visit '/'

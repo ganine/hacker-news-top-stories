@@ -26,3 +26,5 @@
 /public
 
 /node_modules
+
+/spec/cassettes

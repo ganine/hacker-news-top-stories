@@ -9,9 +9,10 @@ describe StoriesRepository, type: :model do
       stories = create_list(:story, 10)
 
       amount = stories.size - 3
-      retrieved = repository.most_recent(amount)
+      results = repository.most_recent(amount)
 
-      expect(retrieved.size).to be_eql(amount)
+      expect(results.size).to be_eql(amount)
+      expect(results.first).to be_kind_of(Story)
     end
   end
 end

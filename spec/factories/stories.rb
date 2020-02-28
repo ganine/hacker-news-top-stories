@@ -1,5 +1,5 @@
 FactoryBot.define do
-  factory :story do
+  factory :story, class: 'StoriesRepository' do
     title { Faker::Lorem.sentence }
     author { Faker::Name.name }
     published_at do

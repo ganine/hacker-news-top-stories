@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'Stories API', type: :request do
   describe 'GET /api/stories' do
     before :all do
-      create_list(:story, 5)
+      create_list(:story, 20)
 
       get '/api/stories'
     end

@@ -7,7 +7,7 @@ describe 'List top Hacker News stories', type: :system, js: true do
 
     expect(page).to have_content('Top 15 Hacker News')
 
-    stories = within('ol.stories') do
+    stories = within('div.stories ol') do
       all('li')
     end
 

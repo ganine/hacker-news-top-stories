@@ -1,5 +1,5 @@
 class ListTopStories
-  def initialize(amount, stories_repository)
+  def initialize(amount, stories_repository = StoriesRepository.new)
     @amount = amount
     @stories_repository = stories_repository
   end

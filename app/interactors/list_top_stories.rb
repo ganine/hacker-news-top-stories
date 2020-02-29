@@ -10,8 +10,17 @@ class ListTopStories
   end
 
   def execute
-    hacker_news_stories = @hacker_news_api.top_stories(@amount)
-    stories = build_model_list(hacker_news_stories)
+    @hacker_news_api.top_stories_ids(@amount).map do |item_id|
+      story = @stories_repository.find_by_item_id(item_id)
+
+      unless story.present?
+        result = @hacker_news_api.story(item_id)
+        story = build_model(result)
+        @stories_repository.add(story)
+      end
+
+      story
+    end
   end
 
   private

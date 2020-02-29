@@ -1,5 +1,6 @@
 class Story
   include ActiveModel::Model
+  attr_accessor :attributes
 
   attr_accessor :id
   attr_accessor :item_id
@@ -7,4 +8,9 @@ class Story
   attr_accessor :author
   attr_accessor :published_at
   attr_accessor :url
+
+  def initialize(attributes = {})
+    super
+    @attributes = attributes
+  end
 end

@@ -33,8 +33,9 @@ heroku buildpacks:add heroku/ruby --index 2
 git push heroku master
 ```
 ## Endpoints
-- `/health` # Health check endpoint
 - `/stories` # Hacker News top stories
+- `/stories/search?term=` # Search through stored stories
+- `/health` # Health check endpoint
 ## Known Issues
 - Story json response publishedAt timezone
 - Console is printing warning messages because of Pry issues with current Ruby version

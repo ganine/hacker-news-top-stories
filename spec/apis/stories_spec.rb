@@ -21,4 +21,19 @@ describe 'Stories API', type: :request do
       expect(stories).to be_a(Array)
     end
   end
+
+  describe 'GET /api/stories/search' do
+    let(:stories) { create_list(:story, 5) }
+
+    it 'returns an array of found stories' do
+      random_story = stories.sample
+      term = random_story.title.split.sample
+
+      get "/api/stories/search?term=#{term}"
+
+      results = JSON.parse(response.body)
+
+      expect(results.sample['title']).to include(term)
+    end
+  end
 end

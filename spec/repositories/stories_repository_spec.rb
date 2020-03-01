@@ -19,6 +19,19 @@ describe StoriesRepository, type: :model do
     end
   end
 
+  describe '#find_by_title' do
+    it 'retrieves a stories by title' do
+      stories = create_list(:story, 3)
+
+      random_story = stories.sample
+      term = random_story.title.split.sample
+
+      results = repository.find_by_title(term)
+
+      expect(results.sample.title).to include(term)
+    end
+  end
+
   describe '#most_recent' do
     it 'retrieves most recent stories' do
       stories = create_list(:story, 10)
@@ -32,6 +45,6 @@ describe StoriesRepository, type: :model do
   end
 
   describe '#count' do
-    it 'counts total of stories stored' do; end
+    xit 'counts total of stories stored' do; end
   end
 end

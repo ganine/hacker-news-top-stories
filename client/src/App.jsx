@@ -3,10 +3,6 @@ import './App.css';
 import Stories from './Stories';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <div className="hacker-news">

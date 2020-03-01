@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Story renders 1`] = `
+<DocumentFragment>
+  <div
+    class="story"
+  >
+    <div>
+      <a
+        href="https://rootsofprogress.org/epistemic-standards-for-why-it-took-so-long"
+        target="_blank"
+      >
+        Epistemic standards for “Why did it take so long to invent X?”
+      </a>
+    </div>
+    <div>
+      by 
+      <a
+        href="https://news.ycombinator.com/user?id=jasoncrawford"
+        target="_blank"
+      >
+        jasoncrawford
+      </a>
+       
+      <a
+        href="https://news.ycombinator.com/item?id=22460018"
+        target="_blank"
+      >
+        03/01/2020 23:01
+      </a>
+    </div>
+    <div />
+  </div>
+</DocumentFragment>
+`;

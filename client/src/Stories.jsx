@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Story from './Story'
 
 class Stories extends React.Component {
   constructor(props) {
@@ -43,7 +44,9 @@ class Stories extends React.Component {
       return (
         <ol>
           {stories.map(story => (
-            <li key={story.id}>{story.title}</li>
+            <li key={story.id}>
+              <Story {...story} />
+            </li>
           ))}
         </ol>
       );

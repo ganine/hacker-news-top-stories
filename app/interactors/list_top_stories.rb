@@ -1,6 +1,8 @@
 class ListTopStories
+  DEFAULT_AMOUNT = 15
+
   def initialize(
-    amount,
+    amount = DEFAULT_AMOUNT,
     hacker_news_api = HackerNewsAPI.new,
     stories_repository = StoriesRepository.new)
 

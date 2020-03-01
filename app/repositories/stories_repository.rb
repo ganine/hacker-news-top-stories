@@ -14,13 +14,19 @@ class StoriesRepository < ApplicationRecord
     record && build_model(record)
   end
 
-  def find_by_title(term)
-    records = dao.select_model_attributes.where(['title ILIKE ?', "%#{term}%"])
+  def find_by_title(term, max = nil)
+    records = dao.select_model_attributes
+                 .where(['title ILIKE ?', "%#{term}%"])
+                 .limit(max)
+
     build_model_list(records)
   end
 
   def most_recent(amount = 1)
-    records = dao.select_model_attributes.order(created_at: :desc).limit(amount)
+    records = dao.select_model_attributes
+                 .order(created_at: :desc)
+                 .limit(amount)
+
     build_model_list(records)
   end
 

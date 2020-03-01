@@ -25,7 +25,7 @@ heroku buildpacks:add heroku/nodejs --index 1
 heroku buildpacks:add heroku/ruby --index 2
 ```
 ## Tasks
-- `rake spec:client`  # Run all client specs
+- `rake spec:client` # Run all client specs
 - `rake build:client` # Builds client
 - `rake start` # Starts application API and client
 ## Deployment
@@ -34,7 +34,13 @@ git push heroku master
 ```
 ## Endpoints
 - `/health` # Health check endpoint
+- `/stories` # Hacker News top stories
 ## Known Issues
-- For some reason the health check route declared in config.ru isn't been available when running system tests
+- Story json response publishedAt timezone
+- Console is printing warning messages because of Pry issues with current Ruby version
+- API endpoints are exposed
 ## References
+- [Hacker News API](https://github.com/HackerNews/API)
+- [RSpec 3.9](https://relishapp.com/rspec/rspec-expectations/v/3-9/docs)
 - [Faker Generators](https://github.com/faker-ruby/faker#generators)
+- [Faraday](https://lostisland.github.io/faraday/usage/)

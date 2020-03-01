@@ -8,6 +8,8 @@ class StoriesController < ApplicationController
 
   def list_top_stories
     default_amount = 15
-    ListTopStories.new(default_amount).execute
+    ListTopStories.new(default_amount).execute.map do |story|
+      StoryPresenter.new(story)
+    end
   end
 end

@@ -8,6 +8,7 @@ exports[`Story renders 1`] = `
     <div>
       <a
         href="https://rootsofprogress.org/epistemic-standards-for-why-it-took-so-long"
+        rel="noopener noreferrer"
         target="_blank"
       >
         Epistemic standards for “Why did it take so long to invent X?”
@@ -17,6 +18,7 @@ exports[`Story renders 1`] = `
       by 
       <a
         href="https://news.ycombinator.com/user?id=jasoncrawford"
+        rel="noopener noreferrer"
         target="_blank"
       >
         jasoncrawford
@@ -24,6 +26,7 @@ exports[`Story renders 1`] = `
        
       <a
         href="https://news.ycombinator.com/item?id=22460018"
+        rel="noopener noreferrer"
         target="_blank"
       >
         03/01/2020 23:01

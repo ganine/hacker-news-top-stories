@@ -23,7 +23,7 @@ class ListStoryComments
       end
 
       comment
-    end
+    end.select(&:relevant?)
   end
 
   private

@@ -28,8 +28,7 @@ describe 'List top Hacker News stories', type: :system, js: true do
       all('li')
     end
 
-    random_story = stories.sample
-    within(random_story) do
+    within(stories.first) do
       click_on 'Show most relevant comments'
     end
   end

@@ -28,7 +28,7 @@ describe 'Stories API', type: :request do
 
       get '/api/stories'
       stories = JSON.parse(response.body)
-      story_id = stories.sample['id']
+      story_id = stories.first['id']
 
       get "/api/stories/#{story_id}/comments"
     end

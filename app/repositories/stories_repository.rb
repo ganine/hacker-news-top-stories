@@ -1,6 +1,8 @@
 class StoriesRepository < ApplicationRecord
   self.table_name = 'stories'
 
+  # has_many :comments, class_name: 'CommentsRepository', foreign_key: 'story_id'
+
   scope :select_model_attributes, (lambda do
     select(%w[id item_id title author published_at url])
   end)

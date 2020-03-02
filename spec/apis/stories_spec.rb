@@ -1,11 +1,9 @@
-# frozen_string_literal: true
-
 require 'rails_helper'
 
 describe 'Stories API', type: :request do
   describe 'GET /api/stories' do
     before :all do
-      VCR.insert_cassette 'hacker_news'
+      VCR.insert_cassette 'hacker_news_stories'
 
       get '/api/stories'
     end
@@ -26,7 +24,7 @@ describe 'Stories API', type: :request do
 
   describe 'GET /api/stories/:id/comments' do
     before :all do
-      VCR.insert_cassette 'hacker_news'
+      VCR.insert_cassette 'hacker_news_comments'
 
       get '/api/stories'
       stories = JSON.parse(response.body)

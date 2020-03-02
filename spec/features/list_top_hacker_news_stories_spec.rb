@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe 'List top Hacker News stories', type: :system, js: true do
   before :all do
-    VCR.insert_cassette 'hacker_news'
+    VCR.insert_cassette 'hacker_news_list_stories_and_comments'
   end
 
   after :all do

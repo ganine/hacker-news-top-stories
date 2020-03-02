@@ -5,6 +5,7 @@ class Comment
   attr_accessor :id
   attr_accessor :item_id
   attr_accessor :author
+  attr_accessor :story_id
   attr_accessor :content
   attr_accessor :published_at
 

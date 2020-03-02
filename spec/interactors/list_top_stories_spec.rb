@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe ListTopStories, type: :request do
   before :all do
-    VCR.insert_cassette 'hacker_news'
+    VCR.insert_cassette 'hacker_news_list_stories'
   end
 
   after :all do

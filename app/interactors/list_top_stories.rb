@@ -4,7 +4,8 @@ class ListTopStories
   def initialize(
     amount = DEFAULT_AMOUNT,
     hacker_news_api = HackerNewsAPI.new,
-    stories_repository = StoriesRepository.new)
+    stories_repository = StoriesRepository.new
+  )
 
     @amount = amount
     @hacker_news_api = hacker_news_api

@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe HackerNewsAPI do
   before :all do
-    VCR.insert_cassette 'hacker_news'
+    VCR.insert_cassette 'hacker_news_api'
   end
 
   after :all do
@@ -10,17 +10,6 @@ describe HackerNewsAPI do
   end
 
   let(:hacker_news) { HackerNewsAPI.new }
-
-  describe '#top_stories' do
-    it 'fetches top stories' do
-      results = hacker_news.top_stories
-
-      expect(results).to be_kind_of(Array)
-
-      fields = %w[by descendants id score time title type url]
-      expect(results.sample.keys).to include(*fields)
-    end
-  end
 
   describe '#top_stories_ids' do
     it 'fetches top stories ids' do

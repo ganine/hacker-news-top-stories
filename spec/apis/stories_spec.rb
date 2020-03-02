@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'Stories API', type: :request do
@@ -17,6 +19,31 @@ describe 'Stories API', type: :request do
     end
 
     it 'returns an array of stories' do
+      stories = JSON.parse(response.body)
+      expect(stories).to be_a(Array)
+    end
+  end
+
+  describe 'GET /api/stories/:id/comments' do
+    before :all do
+      VCR.insert_cassette 'hacker_news'
+
+      get '/api/stories'
+      stories = JSON.parse(response.body)
+      story_id = stories.sample['id']
+
+      get "/api/stories/#{story_id}/comments"
+    end
+
+    after :all do
+      VCR.eject_cassette
+    end
+
+    it 'returns http success' do
+      expect(response).to have_http_status(:success)
+    end
+
+    it 'returns an array of story comments' do
       stories = JSON.parse(response.body)
       expect(stories).to be_a(Array)
     end

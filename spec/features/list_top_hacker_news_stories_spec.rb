@@ -20,4 +20,17 @@ describe 'List top Hacker News stories', type: :system, js: true do
 
     expect(stories.count).to be == 15
   end
+
+  it 'shows stories relevant comments' do
+    visit '/'
+
+    stories = within('div.stories ol') do
+      all('li')
+    end
+
+    random_story = stories.sample
+    within(random_story) do
+      click_on 'Show most relevant comments'
+    end
+  end
 end

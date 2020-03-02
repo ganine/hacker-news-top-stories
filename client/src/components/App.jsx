@@ -1,11 +1,12 @@
 import React, { useEffect, useReducer } from 'react';
-import { initialState, reducer } from '../store/reducer';
+import { initialState, reducer} from '../store/reducers/storiesReducer';
 import axios from 'axios';
 import './App.css';
 import Search from './Search';
 import Story from './Story';
 
 const App = () => {
+
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {

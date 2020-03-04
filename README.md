@@ -2,6 +2,19 @@
 
 https://hn-top-stories.herokuapp.com/
 
+## Architecture
+I've designed it based on [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html) ideas.
+
+I tried to not get too far from Rails regular architecture to not difficult the onboarding of a seasoned Rails developer.
+
+I've added new layers, restricted some Rails "magic" (like Active Record API) and reduced Rails' Model responsibilities (splitting into Presenters, Forms and Repositories).
+
+### Concepts
+- Models: acts like Entities or Value Objects, describes the behavior and express business rules.
+- Repositories: responsible for retrieving and storing models from the persistence layer, ex: in a database or a file.
+- Presenters: define presentation logic, contains the formatting rules according to the view, ex: page view or JSON response
+- Interactors: aka use-cases, encapsulates and describes functionalities of the system. Coordinates Repositories and other Interactors to execute business tasks.
+
 ## Setup
 
 ### Prerequisites

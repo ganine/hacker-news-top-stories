@@ -21,7 +21,7 @@ class ListStoryComments
   private
 
   def fetch_story_comments(story_result)
-    story_result['kids'].each.map do |comment_id|
+    story_result.fetch('kids', []).each.map do |comment_id|
       comment = @comments_repository.find_by_item_id(comment_id)
 
       unless comment.present?
@@ -47,7 +47,7 @@ class ListStoryComments
   def update_story_comments_count(result)
     story = Story.new(
       item_id: result['id'],
-      comments_count: result['kids'].size
+      comments_count: result.fetch('kids', []).size
     )
 
     @stories_repository.put(story)

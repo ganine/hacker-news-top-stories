@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import './Search.css';
+import searchIcon from '../assets/search.svg';
 
 const Search = ({ search }) => {
   const [searchValue, setSearchValue] = useState('');
@@ -29,12 +30,14 @@ const Search = ({ search }) => {
           placeholder="Search stories"
           className="search-text"
         />
-        <input
+
+        <button
           onClick={callSearchFunction}
           type="submit"
-          value="Search"
           className="search-button"
-        />
+        >
+          <img src={searchIcon} alt="Search" />
+        </button>
       </form>
     </div>
   );

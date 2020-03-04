@@ -13,7 +13,8 @@
   border-radius: 3px;
 }
 
-.search-box input {
+.search-box input,
+.search-box button {
   height: 100%;
   padding: 0;
   border: none;
@@ -28,9 +29,9 @@
   font-weight: bold;
 }
 .search-button {
-  width: 5%;
-  height: 58px;
-
-  border: none;
   border-radius: 0 4px 4px 0;
+  background-color: white;
+}
+.search-button img {
+  height: 100%;
 }

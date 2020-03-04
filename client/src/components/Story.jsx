@@ -6,7 +6,6 @@ import Comment from './Comment';
 import './Story.css';
 
 const Story = ({ id, title, author, url, publishedAt, comments }) => {
-
   const [state, dispatch] = useReducer(reducer, initialState);
 
   const {
@@ -64,24 +63,39 @@ const Story = ({ id, title, author, url, publishedAt, comments }) => {
 
   return (
     <div className="story">
-        <a className="story-title" href={url} target="_blank" rel="noopener noreferrer">
-          {title}
-        </a>
+      <a
+        className="story-title"
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        {title}
+      </a>
       <div className="story-subtitle">
         by{' '}
-        <a className="story-author" href={author.url}
-          target="_blank" rel="noopener noreferrer">
+        <a
+          className="story-author"
+          href={author.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {author.user}
         </a>
         &nbsp;
-        <a className="story-publication" href={comments.url}
-          target="_blank" rel="noopener noreferrer">
+        <a
+          className="story-publication"
+          href={comments.url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           {publishedAt}
         </a>
       </div>
       <div className="story-comments-count">{85} comments</div>
       <div className="story-comments">
-        <button className="story-comments-button" onClick={showComments}>{buttonText}</button>
+        <button className="story-comments-button" onClick={showComments}>
+          {buttonText}
+        </button>
         {isVisible && (
           <div className="story-comments-list">
             <hr />

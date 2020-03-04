@@ -13,17 +13,14 @@
   border-radius: 3px;
 }
 
-.search-box form {
-  width: 100%;
-}
-
 .search-box input {
   height: 100%;
   padding: 0;
   border: none;
 }
 .search-text {
-  width: 95%;
+  width: 93%;
+  margin-right: 5px;
 
   color: #303030;
 

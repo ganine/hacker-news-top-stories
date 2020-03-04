@@ -21,23 +21,21 @@ const Search = ({ search }) => {
 
   return (
     <div className="search">
-      <div className="search-box">
-        <form>
-          <input
-            value={searchValue}
-            onChange={handleSearchInputChanges}
-            type="text"
-            placeholder="Search stories"
-            className="search-text"
-          />
-          <input
-            onClick={callSearchFunction}
-            type="submit"
-            value="Search"
-            className="search-button"
-          />
-        </form>
-      </div>
+      <form className="search-box">
+        <input
+          value={searchValue}
+          onChange={handleSearchInputChanges}
+          type="text"
+          placeholder="Search stories"
+          className="search-text"
+        />
+        <input
+          onClick={callSearchFunction}
+          type="submit"
+          value="Search"
+          className="search-button"
+        />
+      </form>
     </div>
   );
 };

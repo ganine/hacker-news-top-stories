@@ -4,15 +4,21 @@ class StoriesRepository < ApplicationRecord
   # has_many :comments, class_name: 'CommentsRepository', foreign_key: 'story_id'
 
   scope :select_model_attributes, (lambda do
-    select(%w[id item_id title author published_at url])
+    select(%w[id item_id title author published_at url comments_count])
   end)
 
   def add(story)
     dao.create(story.attributes)
   end
 
+  def put(story)
+    dao.find_by(item_id: story.item_id).update(story.attributes)
+  end
+
   def find_by_item_id(item_id)
-    record = dao.select_model_attributes.find_by(item_id: item_id)
+    record = dao.select_model_attributes
+                .find_by(item_id: item_id)
+
     record && build_model(record)
   end
 

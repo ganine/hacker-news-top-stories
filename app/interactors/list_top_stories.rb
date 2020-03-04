@@ -34,7 +34,8 @@ class ListTopStories
       title: result['title'],
       author: result['by'],
       published_at: Time.at(result['time']),
-      url: result['url']
+      url: result['url'],
+      comments_count: result['kids'].size
     }
     Story.new(attributes)
   end

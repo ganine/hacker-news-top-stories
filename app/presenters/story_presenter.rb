@@ -14,6 +14,7 @@ class StoryPresenter
       publishedAt: format_datetime(@story.published_at),
       url: @story.url,
       comments: {
+        count: @story.comments_count,
         url: comments_url(@story.item_id)
       }
     }

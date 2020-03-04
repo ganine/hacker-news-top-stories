@@ -91,7 +91,8 @@ const Story = ({ id, title, author, url, publishedAt, comments }) => {
           {publishedAt}
         </a>
       </div>
-      <div className="story-comments-count">{85} comments</div>
+      <div className="story-comments-count">{comments.count} comments</div>
+
       <div className="story-comments">
         <button className="story-comments-button" onClick={showComments}>
           {buttonText}

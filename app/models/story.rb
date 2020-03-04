@@ -8,6 +8,7 @@ class Story
   attr_accessor :author
   attr_accessor :published_at
   attr_accessor :url
+  attr_accessor :comments_count
 
   def initialize(attributes = {})
     super

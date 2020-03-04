@@ -11,7 +11,7 @@ describe Comment, type: :model do
     let(:relevant_word_count) { Comment::RELEVANT_WORD_COUNT }
 
     it 'returns true when content has a relevant word count' do
-      relevant_content = Faker::Lorem.sentence(word_count: relevant_word_count)
+      relevant_content = sentence_with(relevant_word_count)
 
       comment = Comment.new(content: relevant_content)
 
@@ -21,11 +21,15 @@ describe Comment, type: :model do
     it 'returns false when content is empty or have less than relevant word count' do
       expect(Comment.new).not_to be_relevant
 
-      irrelevant_content = Faker::Lorem.sentence(word_count: relevant_word_count - 1)
+      irrelevant_content = sentence_with(relevant_word_count - 1)
 
       comment = Comment.new(content: irrelevant_content)
 
       expect(comment).not_to be_relevant
+    end
+
+    def sentence_with(work_count)
+      Faker::Lorem.sentence(word_count: work_count)
     end
   end
 end

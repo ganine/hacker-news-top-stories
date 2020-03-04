@@ -13,7 +13,7 @@ describe 'Search Hacker News stories', type: :system, js: true do
     visit '/'
 
     titles = within('.stories ol') do
-      all('li .story-title a')
+      all('li .story-title')
     end
 
     random_term = titles.sample.text.split.sample
@@ -23,7 +23,7 @@ describe 'Search Hacker News stories', type: :system, js: true do
     click_on 'Search'
 
     results = within('.stories ol') do
-      all('li .story-title a')
+      all('li .story-title')
     end
 
     expect(results.sample.text).to include(random_term)

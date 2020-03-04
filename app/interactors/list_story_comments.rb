@@ -1,24 +1,32 @@
 class ListStoryComments
-
   def initialize(
     story_id,
     hacker_news_api = HackerNewsAPI.new,
-    comments_repository = CommentsRepository.new
+    comments_repository = CommentsRepository.new,
+    stories_repository = StoriesRepository.new
   )
     @story_id = story_id
     @hacker_news_api = hacker_news_api
     @comments_repository = comments_repository
+    @stories_repository = stories_repository
   end
 
   def execute
-    story = @hacker_news_api.story(@story_id)
+    story_result = @hacker_news_api.story(@story_id)
+    update_story_comments_count(story_result)
 
-    story['kids'].each.map do |comment_id|
+    fetch_story_comments(story_result)
+  end
+
+  private
+
+  def fetch_story_comments(story_result)
+    story_result['kids'].each.map do |comment_id|
       comment = @comments_repository.find_by_item_id(comment_id)
 
       unless comment.present?
         result = @hacker_news_api.comment(comment_id)
-        comment = build_model(result)
+        comment = build_comment(result)
         @comments_repository.add(comment)
       end
 
@@ -26,20 +34,22 @@ class ListStoryComments
     end.select(&:relevant?)
   end
 
-  private
-
-  def build_model(result)
-    attributes = {
+  def build_comment(result)
+    Comment.new(
       item_id: result['id'],
       author: result['by'],
       story_id: result['parent'],
       content: result['text'],
       published_at: Time.at(result['time'])
-    }
-    Comment.new(attributes)
+    )
   end
 
-  def build_model_list(results)
-    results.map { |result| build_model(result) }
+  def update_story_comments_count(result)
+    story = Story.new(
+      item_id: result['id'],
+      comments_count: result['kids'].size
+    )
+
+    @stories_repository.put(story)
   end
 end

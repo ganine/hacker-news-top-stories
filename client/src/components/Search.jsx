@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import './Search.css';
+
 const Search = ({ search }) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -19,15 +21,23 @@ const Search = ({ search }) => {
 
   return (
     <div className="search">
-      <form>
-        <input
-          value={searchValue}
-          onChange={handleSearchInputChanges}
-          type="text"
-          placeholder="Search stories"
-        />
-        <input onClick={callSearchFunction} type="submit" value="Search" />
-      </form>
+      <div className="search-box">
+        <form>
+          <input
+            value={searchValue}
+            onChange={handleSearchInputChanges}
+            type="text"
+            placeholder="Search stories"
+            className="search-text"
+          />
+          <input
+            onClick={callSearchFunction}
+            type="submit"
+            value="Search"
+            className="search-button"
+          />
+        </form>
+      </div>
     </div>
   );
 };

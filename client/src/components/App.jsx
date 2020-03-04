@@ -2,6 +2,7 @@ import React, { useEffect, useReducer } from 'react';
 import { initialState, reducer} from '../store/reducers/storiesReducer';
 import axios from 'axios';
 import './App.css';
+import Header from './Header';
 import Search from './Search';
 import Story from './Story';
 
@@ -60,10 +61,8 @@ const App = () => {
   );
 
   return (
-    <div className="App">
-      <header>
-        <h1>Hacker News</h1>
-      </header>
+    <div className="hacker-news">
+      <Header />
 
       <Search search={search} />
 

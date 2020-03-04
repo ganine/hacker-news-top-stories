@@ -1,0 +1,38 @@
+.search {
+  padding: 25px 40px;
+}
+
+.search-box {
+  display: flex;
+  justify-content: space-between;
+
+  height: 30px;
+  padding: 5px 10px;
+  border: solid #cccccc 1px;
+  border-radius: 3px;
+}
+
+.search-box form {
+  width: 100%;
+}
+
+.search-box input {
+  height: 100%;
+  padding: 0;
+  border: none;
+}
+.search-text {
+  width: 95%;
+
+  color: #303030;
+
+  font-size: small;
+  font-weight: bold;
+}
+.search-button {
+  width: 5%;
+  height: 58px;
+
+  border: none;
+  border-radius: 0 4px 4px 0;
+}

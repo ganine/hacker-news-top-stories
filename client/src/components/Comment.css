@@ -1,0 +1,12 @@
+.comment {
+  margin-bottom: 30px;
+}
+
+.comment-data,
+.comment-author,
+.comment-publication {
+  margin-bottom: 20px;
+  color: #595959;
+  font-size: small;
+  font-weight: bold;
+}

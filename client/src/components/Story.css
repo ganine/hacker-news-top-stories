@@ -1,0 +1,52 @@
+.story {
+  padding: 30px;
+  background-color: #fff;
+  color: #595959;
+}
+
+.story-title {
+  display: block;
+  margin-bottom: 10px;
+
+  color: #595959;
+  text-decoration: none;
+
+  font-weight: bold;
+  font-size: large;
+}
+.story-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.story-subtitle,
+.story-author,
+.story-publication {
+  margin-bottom: 20px;
+  color: #595959;
+  font-size: small;
+}
+
+.story-comments-count {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.story-comments-button {
+  padding: 0;
+  border: none;
+  background-color: #fff;
+  color: #f60;
+  font-size: medium;
+}
+.story-comments-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.story-comments-list hr {
+  border: 0;
+  border-top: 3px solid #f6f6ef;
+  margin: 30px -30px 20px;
+  color: #f6f6ef;
+}

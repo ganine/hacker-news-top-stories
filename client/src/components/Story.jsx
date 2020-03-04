@@ -3,6 +3,8 @@ import { initialState, reducer } from '../store/reducers/commentsReducer';
 import axios from 'axios';
 import Comment from './Comment';
 
+import './Story.css';
+
 const Story = ({ id, title, author, url, publishedAt, comments }) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -62,12 +64,10 @@ const Story = ({ id, title, author, url, publishedAt, comments }) => {
 
   return (
     <div className="story">
-      <div className="story-title">
-        <a href={url} target="_blank" rel="noopener noreferrer">
+        <a className="story-title" href={url} target="_blank" rel="noopener noreferrer">
           {title}
         </a>
-      </div>
-      <div>
+      <div className="story-subtitle">
         by{' '}
         <a className="story-author" href={author.url}
           target="_blank" rel="noopener noreferrer">
@@ -79,12 +79,12 @@ const Story = ({ id, title, author, url, publishedAt, comments }) => {
           {publishedAt}
         </a>
       </div>
+      <div className="story-comments-count">{85} comments</div>
       <div className="story-comments">
-        <div className="story-comments-count">{comments.count}</div>
-        <button onClick={showComments}>{buttonText}</button>
-
+        <button className="story-comments-button" onClick={showComments}>{buttonText}</button>
         {isVisible && (
-          <div className="story-comments-relevant">
+          <div className="story-comments-list">
+            <hr />
             {errorMessage ? (
               <div>{errorMessage}</div>
             ) : isLoading ? (

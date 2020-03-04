@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Comment = ({ author, publishedAt, content, url }) => {
+import './Comment.css';
 
+const Comment = ({ author, publishedAt, content, url }) => {
   return (
     <div className="comment">
-      <div>
-        by{' '}
+      <div className="comment-data">
         <a
           className="comment-author"
           href={author.url}
@@ -24,9 +24,7 @@ const Comment = ({ author, publishedAt, content, url }) => {
           {publishedAt}
         </a>
       </div>
-      <div>
-        {content}
-      </div>
+      <div dangerouslySetInnerHTML={{ __html: content }} />
     </div>
   );
 };

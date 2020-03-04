@@ -45,13 +45,13 @@ heroku buildpacks:add heroku/ruby --index 2
 
 | Task                    | Description                                             |
 | ----------------------- | :------------------------------------------------------ |
+| `rake start`            | Starts application API and client                       |
 | `rake spec`             | Run all specs                                           |
 | `rake spec:unit`        | Run unit tests (Models, Presenters)                     |
 | `rake spec:integration` | Run integration tests (APIs, Interactors, Repositories) |
 | `rake spec:acceptance`  | Run acceptance tests (Features)                         |
 | `rake spec:client`      | Run all client specs                                    |
 | `rake build:client`     | Builds client                                           |
-| `rake start`            | Starts application API and client                       |
 
 ## Deployment
 
@@ -61,12 +61,12 @@ git push heroku master
 
 ## Endpoints
 
-| Endpoint                | Description                   |
-| ----------------------- | :---------------------------- |
-| `/stories`              | Hacker News top stories       |
-| `/stories/:id/comments` | List relevant story comments  |
-| `/stories/search?term=` | Search through stored stories |
-| `/health`               | Health check endpoint         |
+| Endpoint                    | Description                   |
+| --------------------------- | :---------------------------- |
+| `/api/stories`              | Hacker News top stories       |
+| `/api/stories/:id/comments` | List relevant story comments  |
+| `/api/stories/search?term=` | Search through stored stories |
+| `/health`                   | Health check endpoint         |
 
 ## Known Issues
 
@@ -75,14 +75,16 @@ git push heroku master
 - API endpoints are exposed
 
 ## TODO
-- extract Stories and Comments client components
-- improve client tests
-- improve search with pg fulltext and include comments content
+
+- improve search with pg full-text and include comments content
 - make item_id as primary keys
-- optimize VCR cassettes configurations
 - extract api fetch interactors
 - rename /stories endpoint to /top-stories
 - rename /comments endpoint to /relevant-comments
+- sanitize comment content before persist into database
+- optimize VCR cassettes configurations
+- create CSS variables for colors, fonts sizes, etc
+- add a CSS preprocessor
 
 ## References
 
